@@ -4,36 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="currencyConvertor.css">
     <title>Document</title>
 </head>
 
 <body>
+    <h2>CURRENCY CONVERTOR</h2>
     <div class="mainCont">
 
         <form>
-            <label>Amount : </label>
-            <input type="text" name="amount" id="amount">
+            <div class="common amount"><label>Amount : </label>
+                <input type="text" name="amount" id="amount">
+            </div>
 
-            <label for="from">From : </label>
-            <select name="from" id="from">
-                <option value="USD">USD</option>
-                <option value="INR">INR</option>
-                <option value="PKR">PKR</option>
-                <option value="GBP">GBP</option>
-            </select>
+            <div class="common from">
+                <label for="from">From : </label>
+                <select name="from" id="from">
+                    <option value="USD">USD</option>
+                    <option value="INR">INR</option>
+                    <option value="PKR">PKR</option>
+                    <option value="GBP">GBP</option>
+                </select>
+            </div>
 
-            <label for="to">To : </label>
-            <select name="to" id="to">
-                <option value="USD">USD</option>
-                <option value="INR">INR</option>
-                <option value="PKR">PKR</option>
-                <option value="GBP">GBP</option>
-            </select>
-            <br><br>
-            <button type="submit" value="Submit" onclick="test()">SUBMIT</button>
+            <div class="common  to">
+                <label for="to">To : </label>
+                <select name="to" id="to">
+                    <option value="PKR">PKR</option>
+                    <option value="INR">INR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                </select>
+            </div>
+            <div class="common submit"><button type="button" value="button" id="button"
+                    placeholder="Result">SUBMIT</button>
+            </div>
+            <div class="common result">
+                <label>Result : </label>
+                <input style="color: green;font-size: 0.75rem;
+                font-weight: bold;" type="text" name="result" id="Result" readonly>
+            </div>
         </form>
     </div>
-    <script src="curr.js"></script>
+    <script src="currencyConvertor.js"></script>
 </body>
 
 </html>
