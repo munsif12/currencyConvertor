@@ -1,9 +1,20 @@
 
 function fetchingApiData() {
+    const currCodeArr = ["PKR", "USD", "INR", "EUR", "BDT", "CAD", "CNY", "IDR", "JPY", "KGS", "GBP"];
     var finalAmount = 0;
     var res = document.getElementById('Result');
     var from = document.getElementById('from').value;
     var to = document.getElementById('to').value;
+    //to selcect multiple elements with same name like i have two select types.
+    var x = document.querySelectorAll("select")[0];
+    //var c = document.querySelectorAll("select")[1]; => not Working
+    for (let i = 0; i < currCodeArr.length; i++) {
+        let y = document.createElement("option");
+        //y.text = currCodeArr[i];
+        y.text = currCodeArr[i];
+        x.add(y);
+        //c.add(y);
+    }
     var amount = parseInt(document.getElementById('amount').value);
     //const fetch = require("node-fetch");//npm i node-fetch --save
     fetch(`https://currency-exchange.p.rapidapi.com/exchange?q=${amount}.0&from=${from}&to=${to}`
@@ -15,8 +26,10 @@ function fetchingApiData() {
             }
         })
         .then(response => {
+            //console.log(response.json());
             return response.json();
         }).then(result => {
+            console.log(result);
             finalAmount += result * amount;
             res.value = finalAmount.toFixed(2);
         }).catch(err => {
